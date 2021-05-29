@@ -1,0 +1,124 @@
+[27-May-2021 06:35:32 UTC] An Error occurred while handling another error:
+yii\base\InvalidRouteException: Unable to resolve the request "site/error". in /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/base/Module.php:543
+Stack trace:
+#0 /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(109): yii\base\Module->runAction('site/error')
+#1 /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#2 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#3 {main}
+Previous exception:
+yii\base\InvalidRouteException: Unable to resolve the request "productlist/index". in /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/base/Module.php:543
+Stack trace:
+#0 /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('productlist/ind...', Array)
+#1 /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/nf5grpg0h8yu/public_html/admin/web/index.php(17): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/web/Application.php:116
+Stack trace:
+#0 /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/nf5grpg0h8yu/public_html/admin/web/index.php(17): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on',
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,th;q=0.8',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => 'advanced-frontend=d7074a58f049c00ebc1e09ebd384b0b2; _csrf-frontend=9978654a2a845f0f7f88d4af05d019708a40874a79ec66ef444a557bfac232f2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22E4Gb0U9YgnkLOab7FkpcqDbF4x8jdEw3%22%3B%7D; _tccl_visitor=251472e5-4682-4e3a-b1ae-0e34d67933e8; _tccl_visit=251472e5-4682-4e3a-b1ae-0e34d67933e8; advanced-backend=a87144ea792a75d35adf00093d8383b1; _identity-backend=68ba6da06aa706ef2c12c029bb3703a12c4fe8d0c9fe0b4e9a8ef80dbaa0c50fa%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22pItzPBF6wQrfqAhx_2z_S0PC5ycHJvK1%22%2C2592000%5D%22%3B%7D; _csrf-backend=bbada82ab24e100e91fc5060ea6c54f7f7002e369b1c2336dedd1e95d28f4595a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22-EN_1m6fbqDX__EKKXj6XcMtEnx8xJuW%22%3B%7D',
+    'HTTP_HOST' => 'www.chailaiburger.asia',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'UNIQUE_ID' => 'YK89tOcAF@U4GzKS6-rWiQAAAQQ',
+    'SCRIPT_URL' => '/admin/web/index.php',
+    'SCRIPT_URI' => 'http://www.chailaiburger.asia/admin/web/index.php',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'www.chailaiburger.asia',
+    'SERVER_ADDR' => '184.168.99.250',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '202.28.70.96',
+    'DOCUMENT_ROOT' => '/home/nf5grpg0h8yu/public_html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/nf5grpg0h8yu/public_html',
+    'SERVER_ADMIN' => 'webmaster@chailaiburger.asia',
+    'SCRIPT_FILENAME' => '/home/nf5grpg0h8yu/public_html/admin/web/index.php',
+    'REMOTE_PORT' => '56543',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'r=productlist%2Findex',
+    'REQUEST_URI' => '/admin/web/index.php?r=productlist%2Findex',
+    'SCRIPT_NAME' => '/admin/web/index.php',
+    'PHP_SELF' => '/admin/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1622097332.662019,
+    'REQUEST_TIME' => 1622097332,
+]
+[27-May-2021 06:35:36 UTC] An Error occurred while handling another error:
+yii\base\InvalidRouteException: Unable to resolve the request "site/error". in /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/base/Module.php:543
+Stack trace:
+#0 /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(109): yii\base\Module->runAction('site/error')
+#1 /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#2 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#3 {main}
+Previous exception:
+yii\base\InvalidRouteException: Unable to resolve the request "". in /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/base/Module.php:543
+Stack trace:
+#0 /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('', Array)
+#1 /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/nf5grpg0h8yu/public_html/admin/web/index.php(17): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/web/Application.php:116
+Stack trace:
+#0 /home/nf5grpg0h8yu/public_html/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/nf5grpg0h8yu/public_html/admin/web/index.php(17): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on',
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,th;q=0.8',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => 'advanced-frontend=d7074a58f049c00ebc1e09ebd384b0b2; _csrf-frontend=9978654a2a845f0f7f88d4af05d019708a40874a79ec66ef444a557bfac232f2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22E4Gb0U9YgnkLOab7FkpcqDbF4x8jdEw3%22%3B%7D; _tccl_visitor=251472e5-4682-4e3a-b1ae-0e34d67933e8; _tccl_visit=251472e5-4682-4e3a-b1ae-0e34d67933e8; advanced-backend=a87144ea792a75d35adf00093d8383b1; _identity-backend=68ba6da06aa706ef2c12c029bb3703a12c4fe8d0c9fe0b4e9a8ef80dbaa0c50fa%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22pItzPBF6wQrfqAhx_2z_S0PC5ycHJvK1%22%2C2592000%5D%22%3B%7D; _csrf-backend=bbada82ab24e100e91fc5060ea6c54f7f7002e369b1c2336dedd1e95d28f4595a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22-EN_1m6fbqDX__EKKXj6XcMtEnx8xJuW%22%3B%7D',
+    'HTTP_HOST' => 'www.chailaiburger.asia',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'UNIQUE_ID' => 'YK89uJMEMNqH9hbDbhLZQwAAAEU',
+    'SCRIPT_URL' => '/admin/web/',
+    'SCRIPT_URI' => 'http://www.chailaiburger.asia/admin/web/',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'www.chailaiburger.asia',
+    'SERVER_ADDR' => '184.168.99.250',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '202.28.70.96',
+    'DOCUMENT_ROOT' => '/home/nf5grpg0h8yu/public_html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/nf5grpg0h8yu/public_html',
+    'SERVER_ADMIN' => 'webmaster@chailaiburger.asia',
+    'SCRIPT_FILENAME' => '/home/nf5grpg0h8yu/public_html/admin/web/index.php',
+    'REMOTE_PORT' => '56544',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/web/',
+    'SCRIPT_NAME' => '/admin/web/index.php',
+    'PHP_SELF' => '/admin/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1622097336.410768,
+    'REQUEST_TIME' => 1622097336,
+]
+[27-May-2021 08:19:59 UTC] PHP Notice:  Trying to get property 'username' of non-object in /home/nf5grpg0h8yu/public_html/backend/views/layouts/main.php on line 186
+[27-May-2021 08:20:03 UTC] PHP Notice:  Trying to get property 'username' of non-object in /home/nf5grpg0h8yu/public_html/backend/views/layouts/main.php on line 186

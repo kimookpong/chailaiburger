@@ -17,25 +17,29 @@ $this->title = 'Login';
       <a href="../../index2.html" class="h1"><b>CHAILAI</b>ADMIN</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Sign in to start your session
+        <?php
+        echo $_SERVER['REMOTE_ADDR'];
+        ?>
+      </p>
 
       <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-	  <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+      <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
       <?= $form->field($model, 'password')->passwordInput() ?>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-				<?= $form->field($model, 'rememberMe')->checkbox() ?>
-            </div>
+      <div class="row">
+        <div class="col-8">
+          <div class="icheck-primary">
+            <?= $form->field($model, 'rememberMe')->checkbox() ?>
           </div>
-          <!-- /.col -->
-          <div class="col-4">
-			<?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-block', 'name' => 'login-button']) ?>
-          </div>
-          <!-- /.col -->
         </div>
+        <!-- /.col -->
+        <div class="col-4">
+          <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-block', 'name' => 'login-button']) ?>
+        </div>
+        <!-- /.col -->
+      </div>
       <?php ActiveForm::end(); ?>
-<!--
+      <!--
       <div class="social-auth-links text-center mt-2 mb-3">
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
@@ -53,7 +57,7 @@ $this->title = 'Login';
       </p>
     </div>
     <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
   </div>
-  <!-- /.card -->
-</div>
-<!-- /.login-box -->
+  <!-- /.login-box -->

@@ -17,11 +17,7 @@ $this->title = 'Login';
       <a href="../../index2.html" class="h1"><b>CHAILAI</b>ADMIN</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session
-        <?php
-        echo $_SERVER['REMOTE_ADDR'];
-        ?>
-      </p>
+      <p class="login-box-msg">Sign in to start your session</p>
 
       <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
       <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>

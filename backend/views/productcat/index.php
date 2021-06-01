@@ -6,15 +6,15 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Product Lists';
+$this->title = 'Product Cats';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="product-list-index">
+<div class="product-cat-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Product List', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Product Cat', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
 
@@ -22,25 +22,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            [
-                'label' => 'images',
-                'attribute' => 'Product Image',
-                'content' => function ($model) {
-                    /** @var \common\models\ProductList $model */
-                    return Html::img($model->getImageUrl(), ['style' => 'width:50px']);
-                }
-            ],
-            [
-                'attribute' => 'cid',
-                'content' => function ($model) {
-                    return $model->catagory->name;
-                }
-            ],
+
+            'id',
             'name',
-            //'created_at',
-            //'created_user',
-            //'updated_at',
-            //'updated_user',
+            'detail',
 
             [
                 'class' => 'yii\grid\ActionColumn',

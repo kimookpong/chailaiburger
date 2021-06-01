@@ -201,20 +201,20 @@ AppAsset::register($this);
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+                            <a href="<?php echo \yii\helpers\Url::to(['/productcat/index']) ?>" class="nav-link">
                                 <i class="nav-icon far fa-plus-square"></i>
                                 <p>Product Catagories</p>
                             </a>
                         </li>
                         <li class="nav-header">News</li>
                         <li class="nav-item">
-                            <a href="<?php echo \yii\helpers\Url::to(['/productlist/index']) ?>" class="nav-link">
+                            <a href="<?php echo \yii\helpers\Url::to(['/newslist/index']) ?>" class="nav-link">
                                 <i class="nav-icon fab fa-angellist"></i>
                                 <p>News List</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+                            <a href="<?php echo \yii\helpers\Url::to(['/newscat/index']) ?>" class="nav-link">
                                 <i class="nav-icon far fa-plus-square"></i>
                                 <p>News Catagories</p>
                             </a>

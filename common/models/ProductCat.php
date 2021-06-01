@@ -28,7 +28,7 @@ class ProductCat extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'detail'], 'required'],
-            [['detail'], 'integer'],
+            [['detail'], 'string'],
             [['name'], 'string', 'max' => 255],
         ];
     }

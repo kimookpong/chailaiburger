@@ -3,17 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\ProductList;
+use common\models\ProductCat;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * ProductlistController implements the CRUD actions for ProductList model.
+ * ProductcatController implements the CRUD actions for ProductCat model.
  */
-class ProductlistController extends Controller
+class ProductcatController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,13 +30,13 @@ class ProductlistController extends Controller
     }
 
     /**
-     * Lists all ProductList models.
+     * Lists all ProductCat models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => ProductList::find(),
+            'query' => ProductCat::find(),
         ]);
 
         return $this->render('index', [
@@ -46,7 +45,7 @@ class ProductlistController extends Controller
     }
 
     /**
-     * Displays a single ProductList model.
+     * Displays a single ProductCat model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,16 +58,14 @@ class ProductlistController extends Controller
     }
 
     /**
-     * Creates a new ProductList model.
+     * Creates a new ProductCat model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ProductList();
+        $model = new ProductCat();
 
-        $model->code = Yii::$app->security->generateRandomString(8);
-        $model->imagePath = UploadedFile::getInstance($model, 'imagePath');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
@@ -80,7 +77,7 @@ class ProductlistController extends Controller
     }
 
     /**
-     * Updates an existing ProductList model.
+     * Updates an existing ProductCat model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -88,8 +85,8 @@ class ProductlistController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model = $this->findModel($id);
-        $model->imagePath = UploadedFile::getInstance($model, 'imagePath');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
@@ -101,7 +98,7 @@ class ProductlistController extends Controller
     }
 
     /**
-     * Deletes an existing ProductList model.
+     * Deletes an existing ProductCat model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -115,15 +112,15 @@ class ProductlistController extends Controller
     }
 
     /**
-     * Finds the ProductList model based on its primary key value.
+     * Finds the ProductCat model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ProductList the loaded model
+     * @return ProductCat the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ProductList::findOne($id)) !== null) {
+        if (($model = ProductCat::findOne($id)) !== null) {
             return $model;
         }
 

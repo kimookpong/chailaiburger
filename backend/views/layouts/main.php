@@ -22,7 +22,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
     <?php $this->head() ?>
 </head>
 
@@ -219,22 +219,22 @@ AppAsset::register($this);
                                 <p>News Catagories</p>
                             </a>
                         </li>
-						<li class="nav-header">จัดการเว็บไซต์</li>
+                        <li class="nav-header">จัดการเว็บไซต์</li>
                         <li class="nav-item">
-                            <a href="<?php echo \yii\helpers\Url::to(['/productlist/index']) ?>" class="nav-link">
-								<i class="nav-icon fas fa-cogs"></i>
+                            <a href="<?php echo \yii\helpers\Url::to(['/contentlist/update', 'id' => 1]) ?>" class="nav-link">
+                                <i class="nav-icon fas fa-cogs"></i>
                                 <p>ตั้งค่าเบื้องต้น</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-								<i class="nav-icon fas fa-user-friends"></i>
+                                <i class="nav-icon fas fa-user-friends"></i>
                                 <p>จัดการสมาชิก</p>
                             </a>
                         </li>
-						<li class="nav-item">
+                        <li class="nav-item">
                             <a href="<?php echo \yii\helpers\Url::to(['site/logout']) ?>" class="nav-link" data-method="post">
-								<i class="nav-icon fas fa-sign-out-alt"></i>
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>ออกจากระบบ</p>
                             </a>
                         </li>

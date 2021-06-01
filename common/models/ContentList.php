@@ -35,8 +35,8 @@ class ContentList extends \yii\db\ActiveRecord
         return [
             [['code', 'cid', 'name', 'detail', 'created_at', 'created_user', 'updated_at', 'updated_user'], 'required'],
             [['code', 'cid', 'created_at', 'created_user', 'updated_at', 'updated_user'], 'integer'],
-            [['detail'], 'string'],
-            [['name'], 'string', 'max' => 255],
+            [['detail', 'address'], 'string'],
+            [['name', 'title', 'latitude', 'longitude', 'email', 'facebook', 'instragram', 'line'], 'string', 'max' => 255],
         ];
     }
 
@@ -50,6 +50,7 @@ class ContentList extends \yii\db\ActiveRecord
             'code' => 'Code',
             'cid' => 'Cid',
             'name' => 'Name',
+            'title' => 'ชื่อเว็บไซต์',
             'detail' => 'Detail',
             'created_at' => 'Created At',
             'created_user' => 'Created User',

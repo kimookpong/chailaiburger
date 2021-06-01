@@ -13,6 +13,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'slogan')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'address')->textarea(['rows' => 6]) ?>
     <?= $form->field($model, 'latitude')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'longitude')->textInput(['maxlength' => true]) ?>

@@ -137,12 +137,10 @@ AppAsset::register($this);
                 <div class="col-lg-3 col-sm-4 col-xs-12 col-lg-offset-1 pull-right">
                     <div class="contact_us">
                         <h4>ติดต่อสอบถาม</h4>
-                        <a href="">ottoman.th@gmail.com</a>
+                        <a href=""><?= ContentList::findOne(1)->email ?></a>
 
                         <address>
-                            ร้านไฉไลเบอร์เกอร์<br />
-                            ปัตตานี <br />
-                            ประเทศไทย <br />
+                            <?= ContentList::findOne(1)->address ?>
                         </address>
                     </div>
                 </div>
@@ -152,9 +150,9 @@ AppAsset::register($this);
                         <a href=""><img class="footer_logo" src="images/footer_logo.png" alt="Burger" /></a>
 
                         <ul class="list-inline social">
-                            <li><a href="https://www.facebook.com/ChailaiBurger" target="_blank" class="fab fa-facebook"></a></li>
-                            <li><a href="https://www.instagram.com/chailaiburger/" target="_blank" class="fab fa-instagram"></a></li>
-                            <li><a href="https://page.line.me/gdq6701k" target="_blank" class="fab fa-line"></a></li>
+                            <li><a href="<?= ContentList::findOne(1)->facebook ?>" target="_blank" class="fab fa-facebook"></a></li>
+                            <li><a href="<?= ContentList::findOne(1)->instragram ?>" target="_blank" class="fab fa-instagram"></a></li>
+                            <li><a href="<?= ContentList::findOne(1)->line ?>" target="_blank" class="fab fa-line"></a></li>
 
                         </ul>
 

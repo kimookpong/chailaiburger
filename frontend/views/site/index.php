@@ -6,9 +6,11 @@ Created:  Mon May 17 2021
 -->
 <?php
 
+use common\models\ContentList;
 /* @var $this yii\web\View */
 
-$this->title = 'Just The Way You Are';
+
+$this->title = ContentList::findOne(1)->slogan;
 ?>
 
 
@@ -206,8 +208,8 @@ $this->title = 'Just The Way You Are';
     function initMap() {
         // The location of Uluru
         const uluru = {
-            lat: 6.867907,
-            lng: 101.246867
+            lat: <?= ContentList::findOne(1)->latitude ?>,
+            lng: <?= ContentList::findOne(1)->longitude ?>
         };
         // The map, centered at Uluru
         const map = new google.maps.Map(document.getElementById("map"), {

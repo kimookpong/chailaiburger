@@ -11,6 +11,7 @@ use yii\bootstrap\Button;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use common\models\ContentList;
 
 AppAsset::register($this);
 ?>
@@ -25,8 +26,8 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+    <title><?= ContentList::findOne(1)->title ?> - <?= Html::encode($this->title) ?></title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
     <?php $this->head() ?>
 </head>
 
@@ -74,40 +75,40 @@ AppAsset::register($this);
             . Html::endForm()
             . '</li>';
     }
-	$menuItems[] = ['label' => 'สั่งซื้อสินค้า', 'url' => ['/order/index']];
+    $menuItems[] = ['label' => 'สั่งซื้อสินค้า', 'url' => ['/order/index']];
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
     ]);
     NavBar::end();
     ?>
-	<?php if(strpos(Url::current(), "index.php?r=site%2Findex") !== false){ ?>
-    <!-- Header -->
-    <header id="hello">
-        <!-- Container -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="banner">
-                        <h1>JUST THE WAY YOU ARE</h1>
-                        <div class="inner_banner">
-                            <div class="banner_content">
-                                <p>A double layer of sear-sizzled 100% pure beef mingled with special sauce on a sesame seed bun and topped with melty American cheese, crisp lettuce, minced onions and tangy pickles.</p>
-                                <p>*Based on pre-cooked patty weight.</p>
-                            </div>
-                            <div class="stamp">
-                                <img src="images/stamp.png" alt="" />
+    <?php if (strpos(Url::current(), "index.php?r=site%2Findex") !== false) { ?>
+        <!-- Header -->
+        <header id="hello">
+            <!-- Container -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="banner">
+                            <h1>JUST THE WAY YOU ARE</h1>
+                            <div class="inner_banner">
+                                <div class="banner_content">
+                                    <p>A double layer of sear-sizzled 100% pure beef mingled with special sauce on a sesame seed bun and topped with melty American cheese, crisp lettuce, minced onions and tangy pickles.</p>
+                                    <p>*Based on pre-cooked patty weight.</p>
+                                </div>
+                                <div class="stamp">
+                                    <img src="images/stamp.png" alt="" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div><!-- Container end -->
-        <p class="caption">*Limited Time Only</p>
-    </header><!-- Header end -->
-	<?php }else{ ?>
-	<div style="background-color: #e31c79;height: 80px;"></div>
-	<?php } ?>
+            </div><!-- Container end -->
+            <p class="caption">*Limited Time Only</p>
+        </header><!-- Header end -->
+    <?php } else { ?>
+        <div style="background-color: #e31c79;height: 80px;"></div>
+    <?php } ?>
     <?= Breadcrumbs::widget([
         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
     ]) ?>
@@ -127,9 +128,9 @@ AppAsset::register($this);
                 <div class="col-lg-3 col-sm-4 col-xs-12 col-lg-offset-1 pull-right">
                     <div class="subscribe">
                         <p><a href="">เกี่ยวกับเรา</a></p>
-						<p><a href="">สั่งอาหาร</a></p>
-						<p><a href="">ติดต่อ</a></p>
-						<p><a href="http://admin.chailaiburger.asia/" target="_blank">ระบบหลังบ้าน</a></p>
+                        <p><a href="">สั่งอาหาร</a></p>
+                        <p><a href="">ติดต่อ</a></p>
+                        <p><a href="http://admin.chailaiburger.asia/" target="_blank">ระบบหลังบ้าน</a></p>
                     </div>
                 </div>
 
@@ -152,9 +153,9 @@ AppAsset::register($this);
 
                         <ul class="list-inline social">
                             <li><a href="https://www.facebook.com/ChailaiBurger" target="_blank" class="fab fa-facebook"></a></li>
-							<li><a href="https://www.instagram.com/chailaiburger/" target="_blank" class="fab fa-instagram"></a></li>
+                            <li><a href="https://www.instagram.com/chailaiburger/" target="_blank" class="fab fa-instagram"></a></li>
                             <li><a href="https://page.line.me/gdq6701k" target="_blank" class="fab fa-line"></a></li>
-                            
+
                         </ul>
 
                         <div class="footer-copyright">

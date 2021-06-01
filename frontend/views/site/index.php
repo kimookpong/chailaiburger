@@ -8,7 +8,7 @@ Created:  Mon May 17 2021
 
 /* @var $this yii\web\View */
 
-$this->title = 'ไฉไล™ - Just The Way You Are';
+$this->title = 'Just The Way You Are';
 ?>
 
 
@@ -193,35 +193,35 @@ $this->title = 'ไฉไล™ - Just The Way You Are';
 
 <!-- Map -->
 <style type="text/css">
-      /* Set the size of the div element that contains the map */
-      #map {
+    /* Set the size of the div element that contains the map */
+    #map {
         height: 400px;
         /* The height is 400 pixels */
         width: 100%;
         /* The width is the width of the web page */
-      }
-    </style>
- <script>
-      // Initialize and add the map
-      function initMap() {
+    }
+</style>
+<script>
+    // Initialize and add the map
+    function initMap() {
         // The location of Uluru
-        const uluru = { lat: 6.867907, lng: 101.246867 };
+        const uluru = {
+            lat: 6.867907,
+            lng: 101.246867
+        };
         // The map, centered at Uluru
         const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 18,
-          center: uluru,
+            zoom: 18,
+            center: uluru,
         });
         // The marker, positioned at Uluru
         const marker = new google.maps.Marker({
-          position: uluru,
-          map: map,
+            position: uluru,
+            map: map,
         });
-      }
-    </script>
+    }
+</script>
 <div id="map">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.046834014203!2d100.4655511140957!3d7.0037680193383265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304d2843f559e17d%3A0xe298a8ba886c3f47!2sChailai%20Burger!5e0!3m2!1sth!2sth!4v1619936951551!5m2!1sth!2sth" width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.046834014203!2d100.4655511140957!3d7.0037680193383265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304d2843f559e17d%3A0xe298a8ba886c3f47!2sChailai%20Burger!5e0!3m2!1sth!2sth!4v1619936951551!5m2!1sth!2sth" width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 </div>
-<script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAJkXM_jng39-GaLvj7-mqrGDtrzad-hs&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAJkXM_jng39-GaLvj7-mqrGDtrzad-hs&callback=initMap&libraries=&v=weekly" async></script>

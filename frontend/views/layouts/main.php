@@ -12,8 +12,11 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use common\models\ContentList;
+use common\models\BannerList;
 
 AppAsset::register($this);
+
+$banner_top  = BannerList::findOne(4);
 ?>
 
 
@@ -24,7 +27,18 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id="vp" name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        if (screen.width < 1000) {
+            var viewport = document.querySelector("meta[name=viewport]");
+            viewport.parentNode.removeChild(viewport);
+
+            var newViewport = document.createElement("meta");
+            newViewport.setAttribute("name", "viewport");
+            newViewport.setAttribute("content", "width=1000");
+            document.head.appendChild(newViewport);
+        }
+    </script>
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= ContentList::findOne(1)->title ?> - <?= Html::encode($this->title) ?></title>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
@@ -84,17 +98,16 @@ AppAsset::register($this);
     ?>
     <?php if (strpos(Url::current(), "index.php?r=site%2Findex") !== false) { ?>
         <!-- Header -->
-        <header id="hello">
+        <header id="hello" style="background: url(<?= 'storage' . $banner_top->images ?>) no-repeat;background-size: cover;">
             <!-- Container -->
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="banner">
-                            <h1>JUST THE WAY YOU ARE</h1>
+                            <h1><?= $banner_top->name ?></h1>
                             <div class="inner_banner">
                                 <div class="banner_content">
-                                    <p>A double layer of sear-sizzled 100% pure beef mingled with special sauce on a sesame seed bun and topped with melty American cheese, crisp lettuce, minced onions and tangy pickles.</p>
-                                    <p>*Based on pre-cooked patty weight.</p>
+                                    <?= $banner_top->detail ?>
                                 </div>
                                 <div class="stamp">
                                     <img src="images/stamp.png" alt="" />

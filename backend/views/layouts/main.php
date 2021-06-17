@@ -43,7 +43,7 @@ AppAsset::register($this);
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="index3.html" class="nav-link">ออเดอร์</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -193,30 +193,37 @@ AppAsset::register($this);
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-header">Product</li>
+                        <li class="nav-header">ข้อมูลหน้าแรก</li>
+                        <li class="nav-item">
+                            <a href="<?php echo \yii\helpers\Url::to(['/bannerlist/index']) ?>" class="nav-link">
+                                <i class="nav-icon fab fa-angellist"></i>
+                                <p>แบนเนอร์</p>
+                            </a>
+                        </li>
+                        <li class="nav-header">สินค้า</li>
                         <li class="nav-item">
                             <a href="<?php echo \yii\helpers\Url::to(['/productlist/index']) ?>" class="nav-link">
                                 <i class="nav-icon fab fa-angellist"></i>
-                                <p>Product List</p>
+                                <p>รายการสินค้า</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?php echo \yii\helpers\Url::to(['/productcat/index']) ?>" class="nav-link">
                                 <i class="nav-icon far fa-plus-square"></i>
-                                <p>Product Catagories</p>
+                                <p>หมวดสินค้า</p>
                             </a>
                         </li>
-                        <li class="nav-header">News</li>
+                        <li class="nav-header">ข่าวสาร</li>
                         <li class="nav-item">
                             <a href="<?php echo \yii\helpers\Url::to(['/newslist/index']) ?>" class="nav-link">
                                 <i class="nav-icon fab fa-angellist"></i>
-                                <p>News List</p>
+                                <p>รายการข่าว</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?php echo \yii\helpers\Url::to(['/newscat/index']) ?>" class="nav-link">
                                 <i class="nav-icon far fa-plus-square"></i>
-                                <p>News Catagories</p>
+                                <p>หมวดข่าว</p>
                             </a>
                         </li>
                         <li class="nav-header">จัดการเว็บไซต์</li>
@@ -227,7 +234,7 @@ AppAsset::register($this);
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+                            <a href="<?php echo \yii\helpers\Url::to(['/user/index']) ?>" class="nav-link">
                                 <i class="nav-icon fas fa-user-friends"></i>
                                 <p>จัดการสมาชิก</p>
                             </a>

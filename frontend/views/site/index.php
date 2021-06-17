@@ -7,39 +7,44 @@ Created:  Mon May 17 2021
 <?php
 
 use common\models\ContentList;
+use common\models\BannerList;
 /* @var $this yii\web\View */
 
 
 $this->title = ContentList::findOne(1)->slogan;
+
+
+$banner_his = BannerList::findOne(1);
+$banner_pro = BannerList::findOne(2);
+$banner_nutri = BannerList::findOne(5);
+
 ?>
-
-
-
-
-
+<style>
+    .carousel-caption {
+        text-align: left;
+    }
+</style>
 <!-- First section -->
 <div class="row">
     <div class="col-sm-8">
-        <div class="feature">
+        <div class="feature" style="background: url(<?= 'storage' . $banner_his->images ?>) no-repeat center center;background-size: cover;">
             <div class="shack_burger">
                 <div class="chicken">
                     <img src="images/logo_ratio.png" alt="Chicken" />
                 </div>
-
-                <h2>ไฉไล คือ ผู้คน </h2>
-                <p>Black Angus beef patty topped with American cheese, tomato, lettuce, and “Shack Sauce,” served in a grilled potato bun</p>
+                <?= $banner_his->detail ?>
             </div>
             <p class="caption"></p>
         </div>
     </div>
     <div class="col-sm-4">
-        <div class="signature">
+        <div class="signature" style="background: url(<?= 'storage' . $banner_pro->images ?>) no-repeat;background-size: cover;">
             <div class="shape">
                 <span class="flaticon flaticon-burger"></span>
-                <p>PRO</p>
+                <p><?= $banner_pro->name ?></p>
             </div>
             <div class="signature_content">
-                <p>It used to be a Secret but not any more! Our tribute to the King is a Cheddar Beef Patty,</p>
+                <?= $banner_pro->detail ?>
             </div>
         </div>
     </div>
@@ -64,42 +69,20 @@ $this->title = ContentList::findOne(1)->slogan;
         <!-- Carousel -->
         <div id="small_carousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#small_carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#small_carousel" data-slide-to="1"></li>
-                <li data-target="#small_carousel" data-slide-to="2"></li>
-            </ol>
 
             <div class="carousel-caption">
-                <h3>โหมโรงซีฟู๊ด</h3>
+                <h3><?= $banner_nutri->name ?></h3>
                 <hr />
 
                 <ul class="list-unstyled nutrition">
-                    <li><a href=""><span class="flaticon flaticon-protein"></span>
-                            <p>โปรตีน - 33g</p>
-                        </a></li>
-                    <li><a href=""><span class="flaticon flaticon-carbohydrate"></span>
-                            <p>คาร์โบไฮเดรต - 46gm</p>
-                        </a></li>
-                    <li><a href=""><span class="flaticon flaticon-calories"></span>
-                            <p>แคลอรี่ - 750 kcal</p>
-                        </a></li>
+                    <li><?= $banner_nutri->detail ?></li>
                 </ul>
-                <div class="info_btn_shadow">
-                    <a href="" class="info_btn">info & nutrition</a>
-                </div>
             </div>
 
             <!-- carousel inner -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="images/small_slider_bg.jpg" alt="" />
-                </div>
-                <div class="item">
-                    <img src="images/small_slider_bg.jpg" alt="" />
-                </div>
-                <div class="item">
-                    <img src="images/small_slider_bg.jpg" alt="" />
+                    <img src="<?= 'storage' . $banner_nutri->images ?>" alt="" />
                 </div>
             </div><!-- carousel inner end -->
         </div><!-- Carousel end-->
@@ -163,10 +146,14 @@ $this->title = ContentList::findOne(1)->slogan;
 <div class="row forth_sec">
     <div class="col-sm-4">
         <div class="menu">
-            <div class="inner_content">
-                <span class="flaticon flaticon-burger"></span>
-                <h2>menu</h2>
-            </div>
+            <a href="">
+                <div class="inner_content">
+
+                    <span class="flaticon flaticon-burger"></span>
+                    <h2>menu</h2>
+
+                </div>
+            </a>
         </div>
     </div>
     <div class="col-sm-4">

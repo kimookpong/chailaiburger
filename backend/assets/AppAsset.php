@@ -40,6 +40,7 @@ class AppAsset extends AssetBundle
         'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js',
         'dist/js/adminlte.js',
         'dist/js/demo.js',
+        'dist/js/index.js',
         // 'dist/js/pages/dashboard.js',
     ];
     public $depends = [

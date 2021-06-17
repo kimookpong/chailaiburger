@@ -55,7 +55,7 @@ class ProductList extends \yii\db\ActiveRecord
     {
         return [
             [['cid', 'name', 'detail'], 'required'],
-            [['cid', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
+            [['cid', 'price', 'discount', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
             [['detail'], 'string'],
             [['imagePath'], 'image', 'extensions' => 'png, jpg, jpeg', 'maxSize' => 5 * 1024 * 1024],
             [['code', 'name', 'images'], 'string', 'max' => 255],
@@ -75,6 +75,8 @@ class ProductList extends \yii\db\ActiveRecord
             'cid' => 'Cid',
             'name' => 'Name',
             'detail' => 'Detail',
+            'price' => 'Price',
+            'discount' => 'Discount',
             'created_at' => 'Created At',
             'created_by' => 'Created User',
             'updated_at' => 'Updated At',
@@ -110,14 +112,6 @@ class ProductList extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'updated_by']);
     }
-    /*
-    public function save($runValidation = true, $attributeNames = null)
-    {
-        $this->code = Yii::$app->security->generateRandomString(8);
-        return true;
-    }
-    */
-
 
     public function save($runValidation = true, $attributeNames = null)
     {
@@ -156,5 +150,18 @@ class ProductList extends \yii\db\ActiveRecord
     public function getCatagoryList()
     {
         return ProductCat::find()->all();
+    }
+
+    public function afterDelete()
+    {
+        parent::afterDelete();
+        $videoPath = Yii::getAlias('@frontend/web/storage/videos/' . $this->video_id . '.mp4');
+        unlink($videoPath);
+
+        $thumnailPath = Yii::getAlias('@frontend/web/storage/thumbs/' . $this->video_id . '.jpg');
+
+        if (file_exists($thumnailPath)) {
+            unlink($thumnailPath);
+        }
     }
 }

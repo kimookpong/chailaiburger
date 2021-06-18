@@ -3,9 +3,11 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
 
 /**
- * This is the model class for table "order_list".
+ * This is the model class for table "{{%order_list}}".
  *
  * @property int $id
  * @property int|null $user_id
@@ -21,15 +23,14 @@ use Yii;
  */
 class OrderList extends \yii\db\ActiveRecord
 {
-
-    public $verifyCode;
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'order_list';
+        return '{{%order_list}}';
     }
+
 
     /**
      * {@inheritdoc}
@@ -39,8 +40,7 @@ class OrderList extends \yii\db\ActiveRecord
         return [
             [['user_id', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
             [['fullname', 'address', 'phone', 'email', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'required'],
-            [['code', 'fullname', 'address', 'phone', 'email'], 'string', 'max' => 255],
-            ['verifyCode', 'captcha'],
+            [['fullname', 'address', 'phone', 'email'], 'string', 'max' => 255],
         ];
     }
 
@@ -51,18 +51,39 @@ class OrderList extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'code' => 'Code',
             'user_id' => 'User ID',
-            'fullname' => 'Fullname',
-            'address' => 'Address',
-            'phone' => 'Phone',
-            'email' => 'Email',
+            'fullname' => 'ชื่อ-นามสกุล',
+            'address' => 'ที่อยู่',
+            'phone' => 'เบอร์มือถือ',
+            'email' => 'E-mail',
             'status' => 'Status',
             'created_at' => 'Created At',
             'created_by' => 'Created By',
             'updated_at' => 'Updated At',
             'updated_by' => 'Updated By',
-            'verifyCode' => 'Verification Code',
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return \common\models\query\OrderListQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new \common\models\query\OrderListQuery(get_called_class());
+    }
+
+    public function beforeSave($insert)
+    {
+        if ($this->isNewRecord) {
+            $this->created_at = 111111;
+            $this->updated_at = 111111;
+            $this->created_by = Yii::$app->user->identity->id;
+            $this->updated_by = Yii::$app->user->identity->id;
+        } else {
+            $this->updated_at = 111111;
+            $this->updated_by = Yii::$app->user->identity->id;
+        }
+        return parent::beforeSave($insert);
     }
 }

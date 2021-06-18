@@ -89,7 +89,7 @@ $banner_top  = BannerList::findOne(4);
             . Html::endForm()
             . '</li>';
     }
-    $menuItems[] = ['label' => 'สั่งซื้อสินค้า', 'url' => ['/order/index']];
+    $menuItems[] = ['label' => 'สั่งซื้อสินค้า', 'url' => ['/orderlist/index']];
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,

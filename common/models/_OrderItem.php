@@ -5,15 +5,15 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "order_item".
+ * This is the model class for table "{{%order_item}}".
  *
  * @property int $id
- * @property string $code
+ * @property int $code
  * @property int $product_id
  * @property string $product_name
  * @property int $price
  * @property int $quantity
- * @property string|null $comment
+ * @property string $comment
  */
 class OrderItem extends \yii\db\ActiveRecord
 {
@@ -22,7 +22,7 @@ class OrderItem extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'order_item';
+        return '{{%order_item}}';
     }
 
     /**
@@ -31,9 +31,9 @@ class OrderItem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['code', 'product_id', 'product_name', 'price', 'quantity'], 'required'],
-            [['product_id', 'price', 'quantity'], 'integer'],
-            [['code', 'product_name', 'comment'], 'string', 'max' => 255],
+            [['id', 'code', 'product_id', 'product_name', 'price', 'quantity', 'comment'], 'required'],
+            [['id', 'code', 'product_id', 'price', 'quantity'], 'integer'],
+            [['product_name', 'comment'], 'string', 'max' => 255],
         ];
     }
 
@@ -51,5 +51,14 @@ class OrderItem extends \yii\db\ActiveRecord
             'quantity' => 'Quantity',
             'comment' => 'Comment',
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return \common\models\query\OrderItemQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new \common\models\query\OrderItemQuery(get_called_class());
     }
 }

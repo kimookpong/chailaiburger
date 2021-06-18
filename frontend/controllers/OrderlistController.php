@@ -4,15 +4,17 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\OrderList;
+use common\models\OrderItem;
+use common\models\ProductList;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * OrderController implements the CRUD actions for OrderList model.
+ * OrderlistController implements the CRUD actions for OrderList model.
  */
-class OrderController extends Controller
+class OrderlistController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -33,24 +35,6 @@ class OrderController extends Controller
      * Lists all OrderList models.
      * @return mixed
      */
-    public function actionConfirm()
-    {
-        $model = new OrderList();
-
-        if ($model->load(Yii::$app->request->post())) {
-            //echo "<pre>";
-            //print_r($model);
-            //echo "<pre>";
-            //exit();
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('confirm', [
-            'model' => $model,
-        ]);
-    }
-
     public function actionIndex()
     {
         $model = new OrderList();
@@ -63,6 +47,13 @@ class OrderController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionComplete()
+    {
+
+        return $this->render('complete');
+    }
+
     /**
      * Displays a single OrderList model.
      * @param integer $id
@@ -84,12 +75,44 @@ class OrderController extends Controller
     public function actionCreate()
     {
         $model = new OrderList();
+        $model->code = Yii::$app->security->generateRandomString(8);
+        $model->created_at = strtotime("now");
+        $model->updated_at = strtotime("now");
+        $model->user_id     = Yii::$app->user->identity->id ? Yii::$app->user->identity->id : 0;
+        $model->created_by  = Yii::$app->user->identity->id ? Yii::$app->user->identity->id : 0;
+        $model->updated_by  = Yii::$app->user->identity->id ? Yii::$app->user->identity->id : 0;
+
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            $modelItemCheck = ProductList::find()->all();
+            foreach ($modelItemCheck as $item) {
+                if (isset($_COOKIE['item' . $item->id]) && $_COOKIE['item' . $item->id] > 0) {
+
+                    $modelItem = new OrderItem();
+                    $modelItem->code            = $model->code;
+                    $modelItem->product_id      = $item->id;
+                    $modelItem->product_name    = $item->name;
+                    $modelItem->price           = ($item->discount > 0) ? $item->discount : $item->price;
+                    $modelItem->quantity        = $_COOKIE['item' . $item->id];
+                    $modelItem->comment         = "";
+                    $modelItem->save();
+
+                    unset($_COOKIE['item' . $item->id]);
+                    setcookie('item' . $item->id, '', time() - 3600, '/');
+                }
+            }
+
+            unset($_COOKIE['totalCart']);
+            unset($_COOKIE['totalPrice']);
+            setcookie('totalCart', '', time() - 3600, '/');
+            setcookie('totalPrice', '', time() - 3600, '/');
+
+            return $this->redirect(['complete', 'id' => $model->id]);
         }
 
-        return $this->render('create', [
+        return $this->render('confirm', [
             'model' => $model,
         ]);
     }

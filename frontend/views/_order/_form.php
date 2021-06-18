@@ -67,7 +67,7 @@ use common\models\ProductList;
                 <th style="width:75%;text-align: right;vertical-align: middle;font-size: 20px;" scope="row">มีสินค้า <span id="totalCart"><?= isset($_COOKIE['totalCart']) ? $_COOKIE['totalCart'] : 0 ?></span> รายการ</th>
                 <td style="width:10%;vertical-align: middle;font-size: 20px;"><span id="totalPrice"><?= isset($_COOKIE['totalPrice']) ? $_COOKIE['totalPrice'] : 0 ?></span>.00 ฿</td>
                 <td style="width:15%;text-align: center;vertical-align: middle;">
-                    <?= Html::a('สั่งซื้อเลย', ['order/confirm'], ['class' => 'btn btn-success', 'style' => 'font-size:24px;']) ?>
+                    <?= Html::a('สั่งซื้อเลย', ['order/create'], ['class' => 'btn btn-success', 'style' => 'font-size:24px;']) ?>
                 </td>
             </tr>
         </tbody>

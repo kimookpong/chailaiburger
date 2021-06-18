@@ -164,6 +164,11 @@ AppAsset::register($this);
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a data-method="post" class="nav-link" href="<?php echo \yii\helpers\Url::to(['site/logout']) ?>">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
